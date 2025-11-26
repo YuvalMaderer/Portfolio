@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { TerminalSimulator } from "@/components/TerminalSimulator";
+import { useTranslation } from "react-i18next";
 
 const technologies = [
   // Frontend & UI
@@ -46,6 +47,7 @@ const technologies = [
 ];
 
 export function TechStack() {
+  const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -67,7 +69,17 @@ export function TechStack() {
               transition={{ delay: 0.2 }}
               className="text-4xl md:text-5xl font-heading font-bold mb-4"
             >
-              Tech <span className="text-gradient">Stack</span>
+              {t("tech_stack")
+                .split(" ")
+                .map((word, i) =>
+                  word === "Stack" || word === "טכנולוגיות" ? (
+                    <span key={i} className="text-gradient">
+                      {word}{" "}
+                    </span>
+                  ) : (
+                    word + " "
+                  )
+                )}
             </motion.h2>
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
@@ -81,7 +93,7 @@ export function TechStack() {
               transition={{ delay: 0.4 }}
               className="text-lg text-muted-foreground mt-4"
             >
-              Modern technologies I use to build exceptional web experiences
+              {t("tech_text")}
             </motion.p>
           </div>
 

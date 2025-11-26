@@ -1,0 +1,54 @@
+{
+    "about_me": "About Me",
+    "paragraph1": "I'm a passionate Full Stack Developer with a strong foundation in modern web technologies. My journey in software development combines academic knowledge with hands-on experience, enabling me to deliver high-quality, scalable solutions.",
+    "paragraph2": "As a freelancer, I've had the privilege of working with diverse clients, building everything from elegant business websites to complex full-stack applications. My previous internship experience has refined my ability to work in team environments and deliver projects on time.",
+    "paragraph3": "I believe in writing clean, maintainable code and staying current with the latest industry trends. My approach combines technical expertise with strong problem-solving skills to create web experiences that truly make a difference.",
+    "hero_text": "Building modern web experiences and technological solutions that drive business growth",
+    "view_work": "View Work",
+    "contact_me": "Contact Me",
+    "tech_stack": "Tech Stack",
+    "tech_text": "Modern technologies I use to build exceptional web experiences",
+    "services_text": {
+        "title": "Services & Solutions",
+        "subtitle": "Comprehensive web development services tailored to your needs",
+        "items": {
+            "business_websites": {
+                "title": "Business Websites",
+                "description": "Professional, conversion-focused websites that establish your online presence and drive results."
+            },
+            "portfolio_websites": {
+                "title": "Portfolio Websites",
+                "description": "Stunning personal portfolios that showcase your work and tell your unique story."
+            },
+            "e_commerce_solutions": {
+                "title": "E-Commerce Solutions",
+                "description": "Full-featured online stores with Shopify, WooCommerce, or custom platforms."
+            },
+            "full_stack_applications": {
+                "title": "Full-Stack Applications",
+                "description": "Scalable web applications with modern frontend and robust backend architecture."
+            },
+            "custom_development": {
+                "title": "Custom Development",
+                "description": "Tailored solutions built to your exact specifications and business requirements."
+            },
+            "tech_consulting": {
+                "title": "Tech Consulting",
+                "description": "Strategic guidance on technology choices, architecture, and best practices."
+            }
+        }
+    },
+    "additional_note": "...and much more! Every project is unique, and I'm always excited to tackle new challenges.",
+    "lets_connect": "Let's Connect",
+    "project": "Have a project in mind? Let's build something great together.",
+    "name": "Your Name",
+    "email": "Email Adress",
+    "phone": "Phone Number (optional)",
+    "project_text": "Tell me about your project...",
+    "email2": "Email",
+    "phone2": "Phone",
+    "whatsapp": "Chat on WhatsApp",
+    "linkedin": "Connect on LinkedIn",
+    "phone_number": "+972 58-517-1100",
+    "send_message": "Send Message"
+}

@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { MouseFollower } from "@/components/MouseFollower";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { TechStack } from "@/components/sections/TechStack";
@@ -12,7 +13,10 @@ const Index = () => {
     <ThemeProvider>
       <div className="relative min-h-screen">
         <MouseFollower />
-        <ThemeToggle />
+        <div className="fixed top-6 right-6 z-50 flex flex-row gap-4">
+          <ThemeToggle /> {/* שמירה על הגודל המקורי */}
+          <LanguageSwitcher /> {/* שמירה על הגודל המקורי */}
+        </div>
 
         <main className="relative z-10">
           <Hero />

@@ -13,8 +13,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
+import { useTranslation } from "react-i18next";
 
 export function Contact() {
+  const { t, i18n } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
@@ -60,26 +62,26 @@ export function Contact() {
   const contactMethods = [
     {
       icon: Mail,
-      label: "Email",
+      label: t("email2"),
       value: "MadererYuval@gmail.com",
       href: "mailto:madereryuval@gmail.com",
     },
     {
       icon: Phone,
-      label: "Phone",
-      value: "+972 58-517-1100",
+      label: t("phone2"),
+      value: t("phone_number"),
       href: "tel:+972585171100",
     },
     {
       icon: MessageSquare,
       label: "WhatsApp",
-      value: "Chat on WhatsApp",
+      value: t("whatsapp"),
       href: "https://wa.me/972585171100",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "Connect on LinkedIn",
+      value: t("linkedin"),
       href: "https://www.linkedin.com/in/yuval-maderer-7249552a2/",
     },
   ];
@@ -105,7 +107,17 @@ export function Contact() {
               transition={{ delay: 0.2 }}
               className="text-4xl md:text-5xl font-heading font-bold mb-4"
             >
-              Let's <span className="text-gradient">Connect</span>
+              {t("lets_connect")
+                .split(" ")
+                .map((word, i) =>
+                  word === "Connect" || word === "קשר" ? (
+                    <span key={i} className="text-gradient">
+                      {word}{" "}
+                    </span>
+                  ) : (
+                    word + " "
+                  )
+                )}
             </motion.h2>
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
@@ -119,7 +131,7 @@ export function Contact() {
               transition={{ delay: 0.4 }}
               className="text-lg text-muted-foreground mt-4"
             >
-              Have a project in mind? Let's build something great together.
+              {t("project")}
             </motion.p>
           </div>
 
@@ -195,7 +207,7 @@ export function Contact() {
               >
                 <div>
                   <Input
-                    placeholder="Your Name"
+                    placeholder={t("name")}
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
@@ -208,7 +220,7 @@ export function Contact() {
                 <div>
                   <Input
                     type="email"
-                    placeholder="Email Address"
+                    placeholder={t("email")}
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
@@ -221,18 +233,19 @@ export function Contact() {
                 <div>
                   <Input
                     type="tel"
-                    placeholder="Phone Number (optional)"
+                    placeholder={t("phone")}
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
                     className="rounded-xl border-border/50 bg-background/50 focus:border-primary transition-colors"
+                    dir={i18n.language === "he" ? "rtl" : "ltr"} // RTL רק אם עברית
                   />
                 </div>
 
                 <div>
                   <Textarea
-                    placeholder="Tell me about your project..."
+                    placeholder={t("project_text")}
                     value={formData.message}
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
@@ -248,7 +261,7 @@ export function Contact() {
                   size="lg"
                   className="w-full bg-gradient-to-r from-primary via-accent to-secondary hover:opacity-90 text-white rounded-xl py-6 font-semibold shadow-lg hover:shadow-xl hover:glow-primary transition-all duration-300 group"
                 >
-                  Send Message
+                  {t("send_message")}
                   <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </form>
@@ -261,11 +274,7 @@ export function Contact() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 1.2 }}
             className="text-center mt-16"
-          >
-            <p className="text-2xl font-heading font-semibold text-gradient">
-              Let's Build Something Great Together
-            </p>
-          </motion.div>
+          ></motion.div>
         </motion.div>
       </div>
     </section>

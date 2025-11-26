@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Globe,
   ShoppingCart,
@@ -9,58 +10,34 @@ import {
   Lightbulb,
 } from "lucide-react";
 
-const services = [
-  {
-    icon: Globe,
-    title: "Business Websites",
-    description:
-      "Professional, conversion-focused websites that establish your online presence and drive results.",
-    gradient: "from-primary to-accent",
-  },
-  {
-    icon: Smartphone,
-    title: "Portfolio Websites",
-    description:
-      "Stunning personal portfolios that showcase your work and tell your unique story.",
-    gradient: "from-accent to-secondary",
-  },
-  {
-    icon: ShoppingCart,
-    title: "E-Commerce Solutions",
-    description:
-      "Full-featured online stores with Shopify, WooCommerce, or custom platforms.",
-    gradient: "from-secondary to-primary",
-  },
-  {
-    icon: Code,
-    title: "Full-Stack Applications",
-    description:
-      "Scalable web applications with modern frontend and robust backend architecture.",
-    gradient: "from-primary to-secondary",
-  },
-  {
-    icon: Database,
-    title: "Custom Development",
-    description:
-      "Tailored solutions built to your exact specifications and business requirements.",
-    gradient: "from-accent to-primary",
-  },
-  {
-    icon: Lightbulb,
-    title: "Tech Consulting",
-    description:
-      "Strategic guidance on technology choices, architecture, and best practices.",
-    gradient: "from-secondary to-accent",
-  },
-];
+const serviceIcons = {
+  business_websites: Globe,
+  portfolio_websites: Smartphone,
+  e_commerce_solutions: ShoppingCart,
+  full_stack_applications: Code,
+  custom_development: Database,
+  tech_consulting: Lightbulb,
+};
+
+const serviceGradients = {
+  business_websites: "from-primary to-accent",
+  portfolio_websites: "from-accent to-secondary",
+  e_commerce_solutions: "from-secondary to-primary",
+  full_stack_applications: "from-primary to-secondary",
+  custom_development: "from-accent to-primary",
+  tech_consulting: "from-secondary to-accent",
+};
 
 export function Services() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useTranslation();
+
+  // מוציאים את כל השירותים מה-i18n
+  const services = t("services_text.items", { returnObjects: true });
 
   return (
     <section id="services" className="py-24 relative">
-      {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
 
       <div className="container mx-auto px-6 relative">
@@ -79,7 +56,17 @@ export function Services() {
               transition={{ delay: 0.2 }}
               className="text-4xl md:text-5xl font-heading font-bold mb-4"
             >
-              Services <span className="text-gradient">&</span> Solutions
+              {t("services_text.title")
+                .split(" ")
+                .map((word, i) =>
+                  word === "&" || word === "ופתרונות" ? (
+                    <span key={i} className="text-gradient">
+                      {word}{" "}
+                    </span>
+                  ) : (
+                    word + " "
+                  )
+                )}
             </motion.h2>
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
@@ -93,39 +80,39 @@ export function Services() {
               transition={{ delay: 0.4 }}
               className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto"
             >
-              Comprehensive web development services tailored to your needs
+              {t("services_text.subtitle")}
             </motion.p>
           </div>
 
           {/* Services Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, idx) => {
-              const Icon = service.icon;
+            {Object.keys(services).map((key, idx) => {
+              const service = services[key];
+              const Icon = serviceIcons[key];
+
+              const gradient = serviceGradients[key];
+
               return (
                 <motion.div
-                  key={service.title}
+                  key={key}
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.5 + idx * 0.1 }}
                   whileHover={{ y: -8 }}
                   className="group relative"
                 >
-                  {/* Card */}
                   <div className="h-full p-8 rounded-3xl bg-service-card border border-border/50 hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-2xl">
-                    {/* Gradient overlay on hover */}
                     <div
-                      className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-300`}
+                      className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-300`}
                     />
 
                     <div className="relative z-10">
-                      {/* Icon */}
                       <div
-                        className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${service.gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}
+                        className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}
                       >
                         <Icon className="w-7 h-7 text-white" />
                       </div>
 
-                      {/* Content */}
                       <h3 className="text-xl font-heading font-bold mb-3 text-foreground">
                         {service.title}
                       </h3>
@@ -134,9 +121,8 @@ export function Services() {
                       </p>
                     </div>
 
-                    {/* Bottom accent */}
                     <div
-                      className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
+                      className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${gradient} rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
                     />
                   </div>
                 </motion.div>
@@ -152,8 +138,7 @@ export function Services() {
             className="text-center mt-12"
           >
             <p className="text-lg text-muted-foreground">
-              ...and much more! Every project is unique, and I'm always excited
-              to tackle new challenges.
+              {t("additional_note")}
             </p>
           </motion.div>
         </motion.div>

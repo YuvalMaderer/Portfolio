@@ -1,20 +1,24 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import BackgroundParticles from "../BackgroundParticles";
+import FloatingWindows from "../FloatingWindows";
+import { useTranslation } from "react-i18next";
 
 export function Hero() {
+  const { t } = useTranslation();
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <BackgroundParticles />
+      <FloatingWindows /> {/* האנימציה של החלונות */}
       {/* Animated gradient background */}
       <div className="absolute inset-0 gradient-flow opacity-30" />
-
       {/* Grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(186,100,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(186,100,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
-
       {/* Floating orbs */}
       <motion.div
         className="absolute top-20 left-10 w-72 h-72 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 blur-3xl"
@@ -43,7 +47,6 @@ export function Hero() {
         }}
         transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
       />
-
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -89,8 +92,7 @@ export function Hero() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto"
           >
-            Building modern web experiences and technological solutions that
-            drive business growth
+            {t("hero_text")}
           </motion.p>
 
           {/* CTAs */}
@@ -105,7 +107,7 @@ export function Hero() {
               onClick={() => scrollToSection("services")}
               className="group bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl hover:glow-primary transition-all duration-300"
             >
-              View Work
+              {t("view_work")}
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
 
@@ -115,7 +117,7 @@ export function Hero() {
               onClick={() => scrollToSection("contact")}
               className="rounded-2xl px-8 py-6 text-lg font-semibold glass hover:glow-accent transition-all duration-300"
             >
-              Contact Me
+              {t("contact_me")}
             </Button>
           </motion.div>
 

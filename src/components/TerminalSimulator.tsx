@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Terminal } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Terminal } from "lucide-react";
 
 const commands = [
-  { text: '$ npm install modern-web-solutions', delay: 0 },
-  { text: '✓ Installing dependencies...', delay: 1500 },
-  { text: '✓ React + TypeScript configured', delay: 2500 },
-  { text: '✓ Tailwind CSS optimized', delay: 3200 },
-  { text: '✓ Performance: 100/100', delay: 4000 },
-  { text: '$ npm run deploy', delay: 5000 },
-  { text: '🚀 Deployment successful!', delay: 6000 },
+  { text: "$ npm install modern-web-solutions", delay: 0 },
+  { text: "✓ Installing dependencies...", delay: 1500 },
+  { text: "✓ React + TypeScript configured", delay: 2500 },
+  { text: "✓ Tailwind CSS optimized", delay: 3200 },
+  { text: "✓ Performance: 100/100", delay: 4000 },
+  { text: "$ npm run deploy", delay: 5000 },
+  { text: "🚀 Deployment successful!", delay: 6000 },
 ];
 
 export function TerminalSimulator() {
   const [visibleCommands, setVisibleCommands] = useState<number>(0);
-  const [currentText, setCurrentText] = useState('');
+  const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export function TerminalSimulator() {
       const resetTimer = setTimeout(() => {
         setVisibleCommands(0);
         setCurrentIndex(0);
-        setCurrentText('');
+        setCurrentText("");
       }, 3000);
       return () => clearTimeout(resetTimer);
     }
@@ -38,7 +38,7 @@ export function TerminalSimulator() {
           clearInterval(typeInterval);
           setVisibleCommands((prev) => prev + 1);
           setCurrentIndex((prev) => prev + 1);
-          setCurrentText('');
+          setCurrentText("");
         }
       }, 50);
 
@@ -65,7 +65,7 @@ export function TerminalSimulator() {
         </div>
 
         {/* Terminal Body */}
-        <div className="p-6 font-mono text-sm min-h-[240px] bg-card/40">
+        <div className="p-6 font-mono text-sm min-h-[240px] bg-card/40 text-left">
           <AnimatePresence mode="wait">
             {commands.slice(0, visibleCommands).map((cmd, idx) => (
               <motion.div
@@ -73,29 +73,29 @@ export function TerminalSimulator() {
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                className={`mb-2 ${
-                  cmd.text.includes('✓') 
-                    ? 'text-green-500' 
-                    : cmd.text.includes('🚀') 
-                    ? 'text-primary' 
-                    : 'text-foreground/90'
+                className={`mb-2 text-left ${
+                  cmd.text.includes("✓")
+                    ? "text-green-500"
+                    : cmd.text.includes("🚀")
+                    ? "text-primary"
+                    : "text-foreground/90"
                 }`}
               >
                 {cmd.text}
               </motion.div>
             ))}
           </AnimatePresence>
-          
+
           {currentText && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className={`${
-                currentText.includes('✓') 
-                  ? 'text-green-500' 
-                  : currentText.includes('🚀') 
-                  ? 'text-primary' 
-                  : 'text-foreground/90'
+              className={`text-left ${
+                currentText.includes("✓")
+                  ? "text-green-500"
+                  : currentText.includes("🚀")
+                  ? "text-primary"
+                  : "text-foreground/90"
               }`}
             >
               {currentText}
