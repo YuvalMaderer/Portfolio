@@ -10,7 +10,7 @@ export function LanguageSwitcher() {
     document.documentElement.dir = newLang === "he" ? "rtl" : "ltr";
   };
 
-  const buttonText = i18n.language === "en" ? "עברית" : "English";
+  const buttonText = i18n.language === "en" ? "English" : "עברית";
 
   return (
     <motion.button
