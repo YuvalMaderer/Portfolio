@@ -13,7 +13,6 @@ const technologies = [
   { name: "React Native", icon: "📱", category: "Frontend & UI" },
   { name: "React Query", icon: "🔄", category: "Frontend & UI" },
   { name: "React Hooks", icon: "🪝", category: "Frontend & UI" },
-  { name: "React Router", icon: "🛣️", category: "Frontend & UI" },
   { name: "Redux", icon: "🗃️", category: "Frontend & UI" },
   { name: "TailwindCSS", icon: "💨", category: "Frontend & UI" },
   { name: "MUI", icon: "🎭", category: "Frontend & UI" },
