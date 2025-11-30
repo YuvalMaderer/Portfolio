@@ -111,7 +111,7 @@ export function TechStack() {
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.1 }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="group relative p-6 rounded-2xl bg-tech-card border border-border/50 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:shadow-xl"
+                className="group relative p-6 rounded-2xl bg-tech-card border border-border/50 hover:border-primary/50 transition-all duration-300 cursor-auto hover:shadow-xl"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative z-10 text-center">

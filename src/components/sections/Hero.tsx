@@ -59,7 +59,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 group cursor-pointer hover:glow-primary transition-all duration-300"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 group cursor-auto hover:glow-primary transition-all duration-300"
           >
             <Code2 className="w-4 h-4 text-primary group-hover:rotate-12 transition-transform" />
             <span className="text-sm font-medium text-foreground/80">
