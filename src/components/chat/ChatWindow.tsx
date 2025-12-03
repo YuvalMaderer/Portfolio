@@ -46,7 +46,7 @@ export const ChatWindow = ({
   return (
     <div
       className={cn(
-        "fixed bottom-24 right-6 z-50",
+        "fixed bottom-24 right-6 z-[9999]", // העליתי את z-index
         "w-[380px] max-w-[calc(100vw-48px)]",
         "h-[560px] max-h-[calc(100vh-140px)]",
         "bg-card rounded-2xl",
@@ -105,24 +105,26 @@ export const ChatWindow = ({
               !שלום! אני כאן לעזור לך ללמוד על העבודה של יובל
             </p>
             <div className="mt-6 flex flex-wrap gap-2 justify-center">
-              {["What services do you offer?", "מה הטכנולוגיות שאתה עובד איתן?", "How can I contact you?"].map(
-                (suggestion) => (
-                  <button
-                    key={suggestion}
-                    onClick={() => onSendMessage(suggestion)}
-                    className={cn(
-                      "px-3 py-1.5 text-xs rounded-full",
-                      "bg-muted hover:bg-muted/80",
-                      "text-muted-foreground hover:text-foreground",
-                      "transition-colors duration-200",
-                      "border border-border"
-                    )}
-                    dir={/[\u0590-\u05FF]/.test(suggestion) ? "rtl" : "ltr"}
-                  >
-                    {suggestion}
-                  </button>
-                )
-              )}
+              {[
+                "What services do you offer?",
+                "מה הטכנולוגיות שאתה עובד איתן?",
+                "How can I contact you?",
+              ].map((suggestion) => (
+                <button
+                  key={suggestion}
+                  onClick={() => onSendMessage(suggestion)}
+                  className={cn(
+                    "px-3 py-1.5 text-xs rounded-full",
+                    "bg-muted hover:bg-muted/80",
+                    "text-muted-foreground hover:text-foreground",
+                    "transition-colors duration-200",
+                    "border border-border"
+                  )}
+                  dir={/[\u0590-\u05FF]/.test(suggestion) ? "rtl" : "ltr"}
+                >
+                  {suggestion}
+                </button>
+              ))}
             </div>
           </div>
         )}
