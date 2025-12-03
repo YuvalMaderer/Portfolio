@@ -7,12 +7,12 @@ import { About } from "@/components/sections/About";
 import { TechStack } from "@/components/sections/TechStack";
 import { Services } from "@/components/sections/Services";
 import { Contact } from "@/components/sections/Contact";
+import { ClientsSection } from "@/components/sections/ClientsSection";
 
 const Index = () => {
   return (
     <ThemeProvider>
       <div className="relative min-h-screen">
-        <MouseFollower />
         <div className="fixed top-6 right-6 z-50 flex flex-row gap-4">
           <ThemeToggle /> {/* שמירה על הגודל המקורי */}
           <LanguageSwitcher /> {/* שמירה על הגודל המקורי */}
@@ -21,6 +21,7 @@ const Index = () => {
         <main className="relative z-10">
           <Hero />
           <About />
+          <ClientsSection />
           <TechStack />
           <Services />
           <Contact />

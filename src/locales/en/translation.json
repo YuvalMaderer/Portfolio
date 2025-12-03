@@ -50,5 +50,7 @@
     "whatsapp": "Chat on WhatsApp",
     "linkedin": "Connect on LinkedIn",
     "phone_number": "+972 58-517-1100",
-    "send_message": "Send Message"
+    "send_message": "Send Message",
+    "clients": "My Clients",
+    "clients_text": "People and brands I've had the pleasure to work with"
 }

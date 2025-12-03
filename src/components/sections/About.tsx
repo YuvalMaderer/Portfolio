@@ -9,13 +9,6 @@ export function About() {
   const { t, i18n } = useTranslation();
   const [currentLang, setCurrentLang] = useState(i18n.language);
 
-  const toggleLanguage = () => {
-    const newLang = i18n.language === "en" ? "he" : "en";
-    i18n.changeLanguage(newLang);
-    document.documentElement.dir = newLang === "he" ? "rtl" : "ltr";
-    setCurrentLang(newLang);
-  };
-
   // Variants for smooth fade + slide + slight scale
   const contentVariant = {
     initial: (dir: number) => ({ opacity: 0, x: dir * 50, scale: 0.95 }),
@@ -27,16 +20,6 @@ export function About() {
   return (
     <section id="about" className="py-24 relative">
       <div className="container mx-auto px-6">
-        {/* Language Switcher */}
-        {/* <div className="flex justify-end mb-6">
-          <button
-            onClick={toggleLanguage}
-            className="px-4 py-2 bg-primary text-white rounded-lg"
-          >
-            {i18n.language === "en" ? "עברית" : "English"}
-          </button>
-        </div> */}
-
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
