@@ -1,5 +1,4 @@
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import { MouseFollower } from "@/components/MouseFollower";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Hero } from "@/components/sections/Hero";
@@ -8,6 +7,7 @@ import { TechStack } from "@/components/sections/TechStack";
 import { Services } from "@/components/sections/Services";
 import { Contact } from "@/components/sections/Contact";
 import { ClientsSection } from "@/components/sections/ClientsSection";
+import { AIChatWidget } from "@/components/chat";
 
 const Index = () => {
   return (
@@ -31,6 +31,7 @@ const Index = () => {
         <footer className="relative z-10 py-8 border-t border-border/50 mt-24">
           <div className="container mx-auto px-6 text-center text-muted-foreground">
             <p>© 2025 Yuval Maderer. All rights reserved.</p>
+            <AIChatWidget />
           </div>
         </footer>
       </div>

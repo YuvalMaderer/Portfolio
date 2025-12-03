@@ -50,6 +50,12 @@
     --hero-glow: 186 100% 55%;
     --tech-card: 0 0% 100%;
     --service-card: 0 0% 100%;
+
+    /* ⭐ Chat Widget Variables */
+    --chat-gradient-start: 187 85% 53%;
+    --chat-gradient-end: 270 70% 60%;
+    --chat-bubble-user: 187 85% 53%;
+    --chat-bubble-assistant: 220 14% 96%;
   }
 
   .dark {
@@ -90,6 +96,9 @@
     --hero-glow: 186 100% 60%;
     --tech-card: 230 25% 14%;
     --service-card: 230 25% 14%;
+
+    /* ⭐ Chat Widget Dark Mode */
+    --chat-bubble-assistant: 220 14% 20%;
   }
 }
 
@@ -106,6 +115,43 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Sora', system-ui, -apple-system, sans-serif;
     font-weight: 700;
+  }
+}
+
+@layer components {
+  /* ⭐ Chat gradient background */
+  .chat-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--chat-gradient-start)) 0%,
+      hsl(var(--chat-gradient-end)) 100%
+    );
+  }
+
+  /* ⭐ Chat scrollbar styling */
+  .chat-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .chat-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .chat-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+  .chat-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* ⭐ Typing indicator animation */
+  .typing-dot {
+    animation: typing-dot 1.4s ease-in-out infinite;
+  }
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
   }
 }
 
@@ -143,18 +189,17 @@
   }
 
   /* Text Gradients */
-.text-gradient {
-  background: linear-gradient(
-    135deg,
-    hsl(var(--primary) / 1) , 
-    hsl(var(--accent) / 1),
-    hsl(var(--secondary) / 1)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary) / 1),
+      hsl(var(--accent) / 1),
+      hsl(var(--secondary) / 1)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
   /* Glass Morphism */
   .glass {
@@ -168,4 +213,9 @@
     backdrop-filter: blur(16px);
     border: 1px solid hsl(var(--border) / 0.3);
   }
+}
+
+/* ⭐ RTL Support for Hebrew */
+[dir="rtl"] {
+  text-align: right;
 }
