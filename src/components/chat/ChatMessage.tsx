@@ -8,7 +8,7 @@ interface ChatMessageProps {
 
 export const ChatMessage = ({ message }: ChatMessageProps) => {
   const isUser = message.role === "user";
-  
+
   // Detect RTL for Hebrew text
   const isRTL = /[\u0590-\u05FF]/.test(message.content);
 

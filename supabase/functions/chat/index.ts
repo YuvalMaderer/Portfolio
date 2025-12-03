@@ -10,7 +10,7 @@ const KNOWLEDGE_BASE = `
 # Yuval Maderer - Full Stack Developer
 
 ## About
-Yuval Maderer, 25 years old, is a Full Stack Developer passionate about building modern web experiences. He creates clean, fast, and scalable web applications that are both functional and enjoyable to use.
+Yuval (25 years old) is a Full Stack Developer passionate about building modern web experiences. He creates clean, fast, and scalable web applications that are both functional and enjoyable to use.
 
 As a freelancer, Yuval has worked with diverse clients, building everything from elegant business websites to complex full-stack applications. His previous internship experience sharpened his teamwork skills and ability to deliver projects on time.
 
