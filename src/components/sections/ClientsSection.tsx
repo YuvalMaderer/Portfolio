@@ -6,9 +6,9 @@ export function ClientsSection() {
   const { t } = useTranslation();
 
   const clients = [
-    { name: "Client 1", logo: "/LOGO-removebg-preview.png" },
-    { name: "Client 2", logo: "/vimar-logo.webp" },
-    { name: "Client 3", logo: "/Sync1.png" },
+    { name: "KAHANA GROUP", logo: "/LOGO-removebg-preview.png" },
+    { name: "VIMAR", logo: "/vimar-logo.webp" },
+    { name: "SYNC", logo: "/Sync1.png" },
   ];
 
   return (
