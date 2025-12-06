@@ -13,9 +13,9 @@ const Index = () => {
   return (
     <ThemeProvider>
       <div className="relative min-h-screen">
-        <div className="fixed top-6 right-6 z-50 flex flex-row gap-4">
-          <ThemeToggle /> {/* שמירה על הגודל המקורי */}
-          <LanguageSwitcher /> {/* שמירה על הגודל המקורי */}
+        <div className="fixed top-6 right-16 z-50 flex flex-row gap-4">
+          <ThemeToggle />
+          <LanguageSwitcher />
         </div>
 
         <main className="relative z-10">
